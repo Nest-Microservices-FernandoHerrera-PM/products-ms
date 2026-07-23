@@ -1,20 +1,16 @@
 steps:
   - name: "gcr.io/cloud-builders/docker"
     args:
-      [
-        "build",
-        "-t",
-        "southamerica-west1-docker.pkg.dev/nest-ms-fernando-herrera/nest-image-registry-fernando-herrera/products-ms",
-        "-f",
-        "dockerfile.prod",
-        "--platform=linux/amd64",
-        ".",
-      ]
-  - name: "gcr.io/cloud-builders/docker"
-    args:
-      [
-        "push",
-        "southamerica-west1-docker.pkg.dev/nest-ms-fernando-herrera/nest-image-registry-fernando-herrera/products-ms",
-      ]
+      - "build"
+      - "-t"
+      - "southamerica-west1-docker.pkg.dev/nest-ms-fernando-herrera/nest-image-registry-fernando-herrera/products-ms:sqlite-permissions-v1"
+      - "-f"
+      - "dockerfile.prod"
+      - "--platform=linux/amd64"
+      - "."
+
+images:
+  - "southamerica-west1-docker.pkg.dev/nest-ms-fernando-herrera/nest-image-registry-fernando-herrera/products-ms:sqlite-permissions-v1"
+
 options:
   logging: CLOUD_LOGGING_ONLY
